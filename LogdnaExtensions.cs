@@ -13,6 +13,7 @@ namespace Serilog
             string apiKey,
             string appName = null,
             string commaSeparatedTags = null,
+            string? env = null,
             string ingestUrl = "https://logs.logdna.com/logs/ingest",
             string hostname = null,
             int? batchPostingLimit = null,
@@ -27,8 +28,9 @@ namespace Serilog
             ingestUrl += (ingestUrl.Contains("?") ? "&" : "?") + $"hostname={hostname ?? Dns.GetHostName().ToLower()}";
             if (commaSeparatedTags != null) ingestUrl += $"&tags={WebUtility.UrlEncode(commaSeparatedTags)}";
 
-            var envName = Environment.GetEnvironmentVariable("DOTNET_ENVIRONMENT") ?? 
-                Environment.GetEnvironmentVariable("ASPNET_ENVIRONMENT");
+            var envName = env
+                ?? Environment.GetEnvironmentVariable("DOTNET_ENVIRONMENT")
+                ?? Environment.GetEnvironmentVariable("ASPNET_ENVIRONMENT");
 
             return sinkConfiguration.Http(ingestUrl,
                 batchPostingLimit: batchPostingLimit ?? 50,
