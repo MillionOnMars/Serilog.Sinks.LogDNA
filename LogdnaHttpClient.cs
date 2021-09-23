@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 using Serilog.Sinks.Http;
 
 namespace Serilog.Sinks.LogDNA
@@ -17,6 +18,10 @@ namespace Serilog.Sinks.LogDNA
 
             var authToken = Encoding.ASCII.GetBytes($"{apiKey}:");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(authToken));
+        }
+
+        public void Configure(IConfiguration configuration)
+        {
         }
 
         public Task<HttpResponseMessage> PostAsync(string requestUri, HttpContent content) => client.PostAsync(requestUri, content);
