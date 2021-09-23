@@ -1,10 +1,18 @@
-# Serilog.Sinks.LogDNA #
+# Fork information
+
+-   Target net5.0, C# 8.0 nullable
+-   Name `MillionOnMars.Serilog.Sinks.LogDNA` (new prefix)
+-   Update Serilog dependencies to newer
+-   Add an `env` parameter to `WriteTo.LogDNA()`
+
+# Serilog.Sinks.LogDNA
 
 Serilog Sink that sends log events to LogDNA https://logdna.com
 
 **Package** - [Serilog.Sinks.LogDNA](http://nuget.org/packages/serilog.sinks.logdna) | **Platforms** - .NET 4.5, netstandard2.0
 
 Example:
+
 ```csharp
 var log = new LoggerConfiguration()
     .WriteTo.LogDNA(apiKey: "<API_KEY>", appName: "myapp")
@@ -16,6 +24,7 @@ log.Information("Processed {@Position} in {Elapsed:000} ms.", position, elapsedM
 ```
 
 Prints to LogDNA console:
+
 ```
 Oct 10 16:09:13 desktop-r9hnrih myapp Information Processed { Latitude: 25, Longitude: 134 } in 034 ms.
 ```
