@@ -1,19 +1,23 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
+    <TargetFrameworks>net45;net5.0;netstandard2.1</TargetFrameworks>
     <Description>Serilog Sink that sends log events to LogDNA https://logdna.com</Description>
-    <PackageId>Serilog.Sinks.LogDNA</PackageId>
+    <PackageId>MillionOnMars.Serilog.Sinks.LogDNA</PackageId>
     <PackageTags>logdna;serilog;sink;logging</PackageTags>
     <PackageIconUrl>http://serilog.net/images/serilog-sink-nuget.png</PackageIconUrl>
-    <RepositoryUrl>https://github.com/iojancode/Serilog.Sinks.LogDNA</RepositoryUrl>
+    <RepositoryUrl>https://github.com/MillionOnMars/Serilog.Sinks.LogDNA</RepositoryUrl>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <Version>1.0.2</Version>
+    <Version>1.0.4</Version>
+    <LangVersion>8</LangVersion>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageVersion>1.0.4</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Serilog.Sinks.Http" Version="5.1.0" />
-    <PackageReference Include="Serilog" Version="2.8.0" />
+    <PackageReference Include="Serilog.Sinks.Http" Version="7.2.0" />
+    <PackageReference Include="Serilog" Version="2.10.0" />
   </ItemGroup>
 
 </Project>
